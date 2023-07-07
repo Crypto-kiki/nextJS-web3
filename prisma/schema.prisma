@@ -6,11 +6,12 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "mysql"  // planetscale은 mysql 기반임
   url      = env("DATABASE_URL")
-  relationMode = "prisma"
+  relationMode = "prisma"   // planetscale에 연동하려면 이렇게 작성
 }
 
+// db구조. id, createdAt, updatedAt은 필수임
 model User {
   id            Int         @default(autoincrement()) @id
   createdAt     DateTime    @default(now())
